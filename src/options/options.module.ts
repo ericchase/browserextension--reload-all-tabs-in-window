@@ -58,12 +58,12 @@ async function HandleSave() {
 function CheckForChanges() {
   clearInterval(save_blinking_interval);
   if (
-    options.delay !== ToInt(number_delay) || //
+    options.delay !== ToInt(number_delay) ||
     options.show_page_context_menu_item !== checkbox_show_context_menu_item.checked ||
     // advanced options
     options.use_advanced_options !== checkbox_use_advanced_options.checked ||
     options.advanced_delay_range_start !== ToInt(number_advanced_delay_start) ||
-    options.advanced_delay_range_end !== ToInt(number_advanced_delay_end)
+    options.advanced_delay_range_end !== ToInt(number_advanced_delay_end) //
   ) {
     button_save.toggleAttribute('disabled', false);
     button_save.classList.toggle('alt-color');
