@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reload All Tabs (in Window) Options</title>
+    <link rel="stylesheet" href="./options.css" />
+    <script src="./options.module.ts" type="module"></script>
+  </head>
+  <body>
+    <options-option id="delay">
+      Delay between each tab reload:
+      <input class="option-number" type="text" placeholder="0" />
+      ms
+    </options-option>
+    <line-break />
+    <options-checkbox-option id="show-context-menu-item">Show "Reload All Tabs (in Window)" in page right-click context menu.</options-checkbox-option>
+    <line-break />
+    <options-checkbox-option id="use-advanced-options">Use advanced options.</options-checkbox-option>
+    <div id="advanced-options" class="hidden">
+      <section-break />
+      Advanced Options
+      <line-break />
+      <options-option id="advanced-delay">
+        Delay between each tab reload, chosen randomly from range: [
+        <input class="option-number" type="text" placeholder="0" />
+        ,
+        <input class="option-number" type="text" placeholder="0" />
+        ] ms
+      </options-option>
+    </div>
+    <line-break />
+    <button id="save-button" disabled="">Save Changes</button>
+    <span id="save-status"></span>
+  </body>
+</html>

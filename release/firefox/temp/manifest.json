@@ -1,0 +1,68 @@
+{
+  "manifest_version": 3,
+  "name": "Reload All Tabs (in Window)",
+  "version": "0.0.4",
+  "description": "Reload all open tabs in current window.",
+  "icons": {
+    "16": "assets/icon-16.png",
+    "48": "assets/icon-48.png",
+    "128": "assets/icon-128.png"
+  },
+  "author": "ericchase",
+  "action": {
+    "default_icon": {
+      "16": "assets/icon-dark-16.png",
+      "32": "assets/icon-dark-32.png",
+      "48": "assets/icon-dark-48.png",
+      "128": "assets/icon-dark-128.png"
+    },
+    "theme_icons": [
+      {
+        "dark": "assets/icon-dark-16.png",
+        "light": "assets/icon-light-16.png",
+        "size": 16
+      },
+      {
+        "dark": "assets/icon-dark-32.png",
+        "light": "assets/icon-light-32.png",
+        "size": 32
+      },
+      {
+        "dark": "assets/icon-dark-48.png",
+        "light": "assets/icon-light-48.png",
+        "size": 48
+      },
+      {
+        "dark": "assets/icon-dark-128.png",
+        "light": "assets/icon-light-128.png",
+        "size": 128
+      }
+    ]
+  },
+  "content_scripts": [],
+  "web_accessible_resources": [],
+  "permissions": [
+    "contextMenus",
+    "storage"
+  ],
+  "host_permissions": [],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self';"
+  },
+  "background": {
+    "scripts": [
+      "background.module.js"
+    ],
+    "type": "module"
+  },
+  "options_ui": {
+    "page": "options/options.html",
+    "open_in_tab": false
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "strict_min_version": "120.0"
+    },
+    "gecko_android": {}
+  }
+}
