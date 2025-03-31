@@ -35,3 +35,7 @@ For information about my TypeScript library and template projects, please visit:
 
 - https://github.com/ericchase-library/ts-library
 - https://github.com/ericchase-library/ts-template
+
+## Old GitHub Repo
+
+https://github.com/ericchase/addon--reload-all-tabs-in-window
