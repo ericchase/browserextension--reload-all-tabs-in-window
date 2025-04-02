@@ -1,9 +1,9 @@
 import AdmZip from 'adm-zip';
-import { CPath, GetSanitizedFileName, Path } from '../src/lib/ericchase/Platform/FilePath.js';
-import { Logger } from '../src/lib/ericchase/Utility/Logger.js';
-import { BuilderInternal, Step } from './lib/Builder.js';
-import { Step_MirrorDirectory } from './lib/steps/FS-MirrorDirectory.js';
-import { getManifestBrowsers, getPerBrowserManifest, getPerBrowserPackageManifest, MANIFEST_REQUIRED } from './ManifestCache.js';
+import { CPath, GetSanitizedFileName, Path } from '../../../src/lib/ericchase/Platform/FilePath.js';
+import { Logger } from '../../../src/lib/ericchase/Utility/Logger.js';
+import { BuilderInternal, Step } from '../../lib/Builder.js';
+import { Step_MirrorDirectory } from '../../lib/steps/FS-MirrorDirectory.js';
+import { getManifestBrowsers, getPerBrowserManifest, getPerBrowserPackageManifest, MANIFEST_REQUIRED } from '../ManifestCache.js';
 
 const logger = Logger(Step_BrowserExtension_Bundle.name);
 
@@ -26,8 +26,8 @@ class CStep_BrowserExtension_Bundle implements Step {
           await Step_MirrorDirectory({ from: builder.dir.out, to: dirpath, include_patterns: ['**/*'] }).onRun?.(builder);
           // inject environment variables
           const envpath = Path(dirpath, builder.dir.lib.slice(1), 'lib.env.module.js');
-          const text = await builder.platform.File.readText(envpath);
-          await builder.platform.File.writeText(envpath, text.replace(`var BrowserName = "chrome";`, `var BrowserName = "${browser_name}";`));
+          const envtext = await builder.platform.File.readText(envpath);
+          await builder.platform.File.writeText(envpath, envtext.replace(`var BrowserName = "chrome";`, `var BrowserName = "${browser_name}";`));
           // build the zip
           const admZip = new AdmZip();
           admZip.addLocalFolder(dirpath.raw);
